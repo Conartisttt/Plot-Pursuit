@@ -38,6 +38,9 @@ profileSchema.pre('save', async function (next) {
 profileSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
+userSchema.virtual('bookCount').get(function () {
+  return this.savedBooks.length;
+});
 
 const Profile = model('Profile', profileSchema);
 

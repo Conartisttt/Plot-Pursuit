@@ -20,6 +20,12 @@ const bookSchema = new Schema({
     type: String,
     required: true,
   },
+  pages: {
+    type: Number,
+  },
+  genre: {
+    type: String,
+  },
 });
 
 module.exports = bookSchema;
