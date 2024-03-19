@@ -3,10 +3,12 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import App from './App.jsx';
 import Home from './pages/Home';
-import Profile from './pages/Profile';
+import SingleBook from './pages/SingleBook';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import ErrorPage from './pages/Error';
+import Library from './pages/Library';
+import Search from './pages/Search';
 
 const router = createBrowserRouter([
   {
@@ -18,14 +20,20 @@ const router = createBrowserRouter([
         index: true,
         element: <Home />
       }, {
-        path: '/login',
+        path: '/Login',
         element: <Login />
       }, {
-        path: '/signup',
+        path: '/Signup',
         element: <Signup />
       }, {
-        path: '/profiles/:profileId',
-        element: <Profile />
+        path: '/Library/:bookId',
+        element: <SingleBook />
+      }, {
+        path: '/Library',
+        element: <Library/>
+      }, {
+        path: '/Search',
+        element: <Search />
       }
     ]
   },
