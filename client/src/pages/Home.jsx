@@ -2,11 +2,11 @@ import { useQuery } from '@apollo/client';
 
 import CurrentlyReading from '../components/BookList';
 
-import { QUERY_PROFILES } from '../utils/queries';
+import { GET_ME } from '../utils/queries';
 
 const Home = () => {
-  const { loading, data } = useQuery(QUERY_PROFILES);
-  const profiles = data?.profiles || [];
+  const { loading, data } = useQuery(GET_ME);
+  console.log(data);
 
   return (
     <main>

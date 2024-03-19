@@ -8,6 +8,7 @@ import Signup from './pages/Signup';
 import Login from './pages/Login';
 import ErrorPage from './pages/Error';
 import Library from './pages/Library';
+import Search from './pages/Search';
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,9 @@ const router = createBrowserRouter([
       }, {
         path: '/Library',
         element: <Library/>
+      }, {
+        path: '/Search',
+        element: <Search />
       }
     ]
   },
