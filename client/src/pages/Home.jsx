@@ -1,6 +1,6 @@
 import { useQuery } from '@apollo/client';
 
-import ProfileList from '../components/ProfileList';
+import CurrentlyReading from '../components/BookList';
 
 import { QUERY_PROFILES } from '../utils/queries';
 
@@ -15,8 +15,8 @@ const Home = () => {
           {loading ? (
             <div>Loading...</div>
           ) : (
-            <ProfileList
-              profiles={profiles}
+            <CurrentlyReading
+              // book=
               title="Here's the current roster of friends..."
             />
           )}
