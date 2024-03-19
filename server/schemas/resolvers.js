@@ -40,7 +40,7 @@ const resolvers = {
                 const user = await User.findOneAndUpdate(
                     { _id: context.user._id },
                     {
-                        $addToSet: { savedBooks: book }
+                        $addToSet: { books: book }
                     },
                     {
                         new: true,
@@ -55,7 +55,7 @@ const resolvers = {
             if (context.user) {
                 return User.findOneAndUpdate(
                     { _id: context.user._id },
-                    { $pull: { savedBooks: book } },
+                    { $pull: { books: book } },
                     { new: true }
                 )
             }

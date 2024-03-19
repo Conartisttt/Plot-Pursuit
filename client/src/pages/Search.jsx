@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import { useQuery } from '@apollo/client';
+import { useQuery, useMutation } from '@apollo/client';
 // import Auth from '../utils/auth';
 import { googleBooks } from '../utils/API';
-// import { useMutation } from '@apollo/client'
-// import { SAVE_BOOK } from '../utils/mutations';
+import { SAVE_BOOK } from '../utils/mutations';
 import { GET_ME } from '../utils/queries';
 import {
     Form,
@@ -18,6 +17,7 @@ const Search = () => {
 
     const [searchInput, setSearchInput] = useState('');
     const [searchData, setSearchData] = useState('');
+    const [saveBook] = useMutation(SAVE_BOOK);
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
@@ -37,6 +37,21 @@ const Search = () => {
             setSearchData(bookData);
         } catch (err) {
         console.error(err);
+      }
+    }
+
+    const handleBookSave = async (book) => {
+      try {
+        const { data } = await saveBook({
+          variables: { book }
+        });
+
+        if (!data) {
+          throw new Error('something went wrong!');
+        }
+
+      } catch (e) {
+        console.log(e)
       }
     }
 
@@ -81,7 +96,9 @@ const Search = () => {
                     Pages:
                     {book.pages}
                     </Card.Text>
-                  <Button variant="primary">Save To Library</Button>
+                  <Button 
+                  onClick={()=>handleBookSave(book)}
+                  variant="primary">Save To Library</Button>
                 </Card.Body>
               </Card>
             )

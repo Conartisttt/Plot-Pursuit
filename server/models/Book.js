@@ -9,6 +9,7 @@ const bookSchema = new Schema({
   bookId: {
     type: String,
     required: true,
+    unique: true,
   },
   image: {
     type: String,
@@ -20,7 +21,7 @@ const bookSchema = new Schema({
   pages: {
     type: String,
   },
-    isRead: {
+  isRead: {
     type: Boolean,
     default: false
   },
