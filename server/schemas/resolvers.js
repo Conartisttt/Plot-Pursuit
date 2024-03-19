@@ -29,32 +29,33 @@ const resolvers = {
       const correctPw = await profile.isCorrectPassword(password);
 
       if (!correctPw) {
-        throw AuthenticationError;
+        throw AuthenticationError ('Incorret email or password');
       }
 
       const token = signToken(profile);
       return { token, profile };
     },
 
-    addSkill: async (parent, { profileId, skill }) => {
+    addBook: async (parent, { profileId, book  }) => {
       return Profile.findOneAndUpdate(
         { _id: profileId },
         {
-          $addToSet: { skills: skill },
+          $addToSet: { books: book },
         },
         {
           new: true,
           runValidators: true,
         }
       );
+
     },
     removeProfile: async (parent, { profileId }) => {
       return Profile.findOneAndDelete({ _id: profileId });
     },
-    removeSkill: async (parent, { profileId, skill }) => {
+    removeBook: async (parent, { profileId, book }) => {
       return Profile.findOneAndUpdate(
         { _id: profileId },
-        { $pull: { skills: skill } },
+        { $pull: { books: book } },
         { new: true }
       );
     },
