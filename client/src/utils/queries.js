@@ -6,7 +6,7 @@ query me {
         _id
         username
         email
-        savedBooks {
+        books {
             authors
             bookId
             image

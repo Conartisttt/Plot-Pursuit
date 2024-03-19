@@ -3,8 +3,7 @@ type User {
     _id: ID
     username: String
     email: String
-    bookCount: Int
-    savedBooks: [Book]
+    books: [Book]
 }
 
 type Book {
@@ -13,7 +12,6 @@ type Book {
     pages: String
     title: String
     image: String
-    link: String
     isRead: Boolean
     isReading: Boolean
 }
@@ -27,8 +25,8 @@ type Auth {
     authors: [String]
     bookId: String
     image: String
-    title: String
     pages: String
+    title: String
   }
 
 type Query {

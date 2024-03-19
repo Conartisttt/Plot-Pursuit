@@ -29,13 +29,12 @@ mutation saveBook($book: BookData!) {
   saveBook(book: $book) {
     _id
     username
-    savedBooks {
+    books {
         authors
-        description
         bookId
         image
-        link
         title
+        pages
     }
   }
 }
@@ -46,13 +45,12 @@ mutation removeBook($bookId: String!) {
     removeBook(bookId: $bookId) {
         _id
         username
-        savedBooks {
-            authors
-            description
-            bookId
-            image
-            link
-            title
+        books {
+          authors
+          bookId
+          image
+          title
+          pages
         }
     }
 }
