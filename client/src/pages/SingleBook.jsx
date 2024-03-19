@@ -3,14 +3,14 @@ import { useQuery } from '@apollo/client';
 
 
 
-import { QUERY_SINGLE_BOOK } from '../utils/queries';
+// import { QUERY_SINGLE_BOOK } from '../utils/queries';
 
 const Book = () => {
   const { bookId } = useParams();
 
-  const { loading, data } = useQuery(QUERY_SINGLE_BOOK, {
-    variables: { bookId: bookId },
-  });
+  // const { loading, data } = useQuery(QUERY_SINGLE_BOOK, {
+  //   variables: { bookId: bookId },
+  // });
 
   const book = data?.book || {};
 

@@ -13,19 +13,21 @@ const bookSchema = new Schema({
   image: {
     type: String,
   },
-  link: {
-    type: String,
-  },
   title: {
     type: String,
     required: true,
   },
   pages: {
-    type: Number,
-  },
-  genre: {
     type: String,
   },
+    isRead: {
+    type: Boolean,
+    default: false
+  },
+  isReading: {
+    type: Boolean,
+    default: false
+  }
 });
 
 module.exports = bookSchema;
