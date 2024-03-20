@@ -56,12 +56,16 @@ mutation removeBook($bookId: String!) {
 }
 `
 
-export const ADD_SKILL = gql`
-  mutation addSkill($profileId: ID!, $skill: String!) {
-    addSkill(profileId: $profileId, skill: $skill) {
-      _id
-      name
-      skills
+export const UPDATE_BOOK_STATUS = gql`
+mutation updateBookStatus($bookId: ID!, $isRead: Boolean!, $isReading: Boolean!) {
+  updateBookStatus(bookId: $bookId, isRead: $isRead, isReading: $isReading) {
+    _id
+    title
+    author
+    pages
+    genre
+    isRead
+    isReading
     }
   }
 `;
