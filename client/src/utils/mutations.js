@@ -63,7 +63,6 @@ mutation updateBookStatus($bookId: ID!, $isRead: Boolean!, $isReading: Boolean!)
     title
     author
     pages
-    genre
     isRead
     isReading
     }
