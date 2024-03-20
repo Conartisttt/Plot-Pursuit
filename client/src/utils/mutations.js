@@ -55,13 +55,3 @@ mutation removeBook($bookId: String!) {
     }
 }
 `
-
-export const ADD_SKILL = gql`
-  mutation addSkill($profileId: ID!, $skill: String!) {
-    addSkill(profileId: $profileId, skill: $skill) {
-      _id
-      name
-      skills
-    }
-  }
-`;
