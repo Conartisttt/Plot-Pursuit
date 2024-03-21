@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-
+import Nav from '../Nav/index';
 import Auth from '../../utils/auth';
 
 const Header = () => {
@@ -43,6 +43,7 @@ const Header = () => {
           )}
         </div>
       </div>
+      <Nav className="navigation"/>
     </header>
   );
 };
