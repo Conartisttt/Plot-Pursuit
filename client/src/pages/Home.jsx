@@ -6,7 +6,18 @@ const Home = () => {
   const { loading, error, data } = useQuery(GET_ME);
   
   if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error.message}</div>;
+  // if (error) return <div>Error: {error.message}</div>;
+
+  const isLoggedIn = data && data.me;
+
+  if(!isLoggedIn){
+    return (
+      <div className='container text-center'>
+        <h1>✧･ﾟ✧  Welcome to Plot Persuit  ✧･ﾟ✧</h1>
+        <p>Plot Persuit is the one stop destination for all your personal library and TBR tracking needs! please login or signup to continue!</p>
+      </div>
+    );
+  }
 
   // Filter books based on the isReading property
   const currentlyReadingBooks = data.me.books.filter(book => book.isReading);
