@@ -1,4 +1,4 @@
-
+import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { GET_ME } from '../utils/queries';
 
@@ -14,6 +14,7 @@ const Library = () => {
       <div className="row">
         {data.me.books.map(book => (
           <div key={book.bookId} className="col-md-3 mb-4">
+            <Link to={`/Library/${book.bookId}`} className='text-decoration-none'>
             <div className="card">
               <img src={book.image} className="card-img-top centered-image" alt={book.title} />
               <div className="card-body">
@@ -21,6 +22,7 @@ const Library = () => {
                 <p className="card-text">Author: {book.authors.join(', ')}</p>
               </div>
             </div>
+            </Link>
           </div>
         ))}
       </div>
