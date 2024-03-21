@@ -1,42 +1,34 @@
-import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { useQuery } from '@apollo/client';
+import { GET_ME } from '../utils/queries';
 
 const Library = () => {
-  const [books, setBooks] = useState([]);
-
-  useEffect(() => {
-    // Fetch user's library data when component mounts
-    fetchBooks();
-  }, []);
-
-  const fetchBooks = async () => {
-    try {
-      const response = await fetch('/api/books');
-      if (!response.ok) {
-        throw new Error('Failed to fetch books');
-      }
-      const data = await response.json();
-      setBooks(data);
-    } catch (error) {
-      console.error('Error fetching books:', error.message);
-    }
-  };
-
+  const { loading, error, data } = useQuery(GET_ME);
+  
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
+  
   return (
-    <div>
-      <h2>My Library</h2>
-      <ul>
-        {books.map(book => (
-          <li key={book._id}>
-            <h3>{book.title}</h3>
-            <p>Author: {book.author}</p>
-            <p>Pages: {book.pages}</p>
-            <p>Genre: {book.genre}</p>
-            <p> published:{book.published}</p>
-          </li>
+    <div className="container">
+      <h1 className="text-center">Library</h1>
+      <div className="row">
+        {data.me.books.map(book => (
+          <div key={book.bookId} className="col-md-3 mb-4">
+            <Link to={`/Library/${book.bookId}`} className='text-decoration-none'>
+            <div className="card">
+              <img src={book.image} className="card-img-top centered-image" alt={book.title} />
+              <div className="card-body">
+                <h5 className="card-title">{book.title}</h5>
+                <p className="card-text">Author: {book.authors.join(', ')}</p>
+              </div>
+            </div>
+            </Link>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };
 
 export default Library;
+
