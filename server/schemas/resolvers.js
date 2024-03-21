@@ -57,13 +57,13 @@ const resolvers = {
                     { _id: context.user._id },
                     {
                         $pull: {
-                            books: {bookId}
+                            books: { bookId }
                         },
                     },
-            { new: true }
+                    { new: true }
                 )
             }
-throw AuthenticationError;
+            throw AuthenticationError;
         },
     },
 };
