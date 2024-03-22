@@ -1,16 +1,17 @@
-import { Link } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
-import { GET_ME } from '../utils/queries';
+import { Link } from "react-router-dom";
+import { useQuery } from "@apollo/client";
+import { GET_ME } from "../utils/queries";
 
 const Library = () => {
   const { loading, error, data } = useQuery(GET_ME);
-  
+
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
-  
+
   return (
     <div className="container">
       <h1 className="text-center">Library</h1>
+
       <div className="row row-cols-1 row-col-md-3 g-4">
         {data.me.books.map(book => (
           <div key={book.bookId} className="col mb-4">
@@ -21,8 +22,8 @@ const Library = () => {
                 <h5 className="card-title">{book.title}</h5>
                 <p className="card-text">Author: {book.authors.join(', ')}</p>
               </div>
+
             </div>
-            </Link>
           </div>
         ))}
       </div>
@@ -31,4 +32,3 @@ const Library = () => {
 };
 
 export default Library;
-
