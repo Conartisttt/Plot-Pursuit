@@ -1,10 +1,14 @@
 :root {
-    --light-green: #cad2c5;
+    --light-green: #edf9e5;
     --medium-green: #84a98c;
     --teal: #52796f;
     --dark-teal: #354f52;
     --navy: #2f3e46;
     
+}
+
+body {
+    background-color: var(--light-green);
 }
 
 .centered-image {
@@ -34,5 +38,26 @@
 .readme {
     max-width: 300px;
     max-height: 500px;
+    padding-top: 10px;
 }
+
+.footer {
+    color: var(--dark-teal);
+}
+
+button {
+    background-color: var(--light-green);
+}
+
+.card:hover {
+    color:var(--navy)
+}
+
+.card {
+    color: var(--teal);
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 10px; 
+}
+
 

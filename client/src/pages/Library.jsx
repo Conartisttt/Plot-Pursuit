@@ -11,9 +11,9 @@ const Library = () => {
   return (
     <div className="container">
       <h1 className="text-center">Library</h1>
-      <div className="row">
+      <div className="row row-cols-1 row-col-md-3 g-4">
         {data.me.books.map(book => (
-          <div key={book.bookId} className="col-md-3 mb-4">
+          <div key={book.bookId} className="col mb-4">
             <Link to={`/Library/${book.bookId}`} className='text-decoration-none'>
             <div className="card">
               <img src={book.isRead ? book.image:'/readmecover.jpg'} className="card-img-top centered-image readme" alt={book.title} style={{height:'175px', width:'125px'}}/>
