@@ -27,6 +27,9 @@ const Header = () => {
               <Link className="btn btn-lg btn-primary m-2" to="/search">
               Search
               </Link>
+              <Link className="btn btn-lg btn-light m-2" to="/library">
+                Library
+              </Link>
             </div>
           ) : (
             <>
@@ -35,9 +38,6 @@ const Header = () => {
               </Link>
               <Link className="btn btn-lg btn-light m-2" to="/signup">
                 Signup
-              </Link>
-              <Link className="btn btn-lg btn-light m-2" to="/library">
-                Library
               </Link>
             </>
           )}
