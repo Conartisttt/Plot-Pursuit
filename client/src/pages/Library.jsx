@@ -16,7 +16,7 @@ const Library = () => {
           <div key={book.bookId} className="col-md-3 mb-4">
             <Link to={`/Library/${book.bookId}`} className='text-decoration-none'>
             <div className="card">
-              <img src={book.image} className="card-img-top centered-image" alt={book.title} />
+              <img src={book.isRead ? book.image:'/readmecover.jpg'} className="card-img-top centered-image readme" alt={book.title} style={{height:'175px', width:'125px'}}/>
               <div className="card-body">
                 <h5 className="card-title">{book.title}</h5>
                 <p className="card-text">Author: {book.authors.join(', ')}</p>

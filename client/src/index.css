@@ -18,6 +18,21 @@
     margin-right: 40px;
 }
 
-.navcontainer {
-    
+.currentRead {
+    text-align: center;
+    min-height: 300px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
 }
+
+.currentBook {
+    min-height: 300px;
+    min-width: 250px;
+}
+
+.readme {
+    max-width: 300px;
+    max-height: 500px;
+}
+
