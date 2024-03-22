@@ -38,7 +38,7 @@ type Query {
     addUser(username: String!, email: String!, password: String!): Auth
     saveBook(book: BookData): User
     removeBook(bookId: String): User
-    updateBookStatus(bookId: ID!, isRead: Boolean, isReading: Boolean): Book
+    updateBookStatus(bookId: String!, isRead: Boolean, isReading: Boolean): Book
   }
 `;
 
