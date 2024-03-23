@@ -8,7 +8,7 @@ import Auth from "../utils/auth";
 import { googleBooks } from "../utils/API";
 import { SAVE_BOOK } from "../utils/mutations";
 import { GET_ME } from "../utils/queries";
-import { Form, Button, Card } from "react-bootstrap";
+import { Form, Button, Card,Row,Col } from "react-bootstrap";
 
 const Search = () => {
   const navigate = useNavigate();
@@ -102,52 +102,51 @@ const Search = () => {
         <div>
           <Form onSubmit={handleFormSubmit}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>Search</Form.Label>
-              <Form.Control
+              <Form.Label className='col-lg-10'style={{fontFamily:'IM Fell DW Pica', fontSize:'30px', backgroundColor:'#52796f'}}>Search</Form.Label>
+              <Form.Control className="col-lg-10"
                 value={searchInput}
+                style={{fontFamily:'IM Fell DW Pica', fontSize:'25px'}}
                 onChange={(e) => setSearchInput(e.target.value)}
                 placeholder="enter book"
               />
             </Form.Group>
-            <Button variant="primary" type="submit">
+            <Button variant="primary" type="submit" style={{ cursor: 'pointer',fontFamily:'IM Fell DW Pica',fontSize:'25px',backgroundColor:'gray' }}>
               Submit
             </Button>
           </Form>
-          {searchData &&
-            searchData.map((book) => {
-              return (
-                <Card key={book.bookId} style={{ width: "18rem" }}>
-                  <Card.Img variant="top" src={book.image} />
-                  <Card.Body>
-                    <Card.Title>
-                      Title:
-                      <br></br>
-                      {book.title}
-                    </Card.Title>
-                    <Card.Text>
-                      Authors:
-                      <br></br>
-                      {book.authors}
-                    </Card.Text>
-
-                    <Card.Text>
-                      Pages:
-                      {book.pages}
-                    </Card.Text>
-                    <Button
-                      onClick={(e) => handleBookSave(e, book)}
-                      variant="primary"
-                    >
-                      Save
-                    </Button>
-                  </Card.Body>
-                </Card>
-              );
-            })}
+          {searchData &&(
+            <Row className="justify-content-center">
+              {searchData.map((book) => (
+                <Col key={book.bookId} className="mb-4" md={4}>
+                  <Card style={{ width: "18rem", paddingTop:'15px' }}>
+                    <Card.Img variant="top" src={book.image} />
+                    <Card.Body>
+                      <Card.Title>
+                        Title:
+                        <br />
+                        {book.title}
+                      </Card.Title>
+                      <Card.Text>
+                        Authors:
+                        <br />
+                        {book.authors}
+                      </Card.Text>
+          
+                      <Card.Text>Pages: {book.pages}</Card.Text>
+                      <Button onClick={(e) => handleBookSave(e, book)} variant="primary"
+                      style={{ cursor: 'pointer',fontFamily:'IM Fell DW Pica',fontSize:'25px',backgroundColor:'gray' }}>
+                        Save
+                      </Button>
+                     </Card.Body>
+                   </Card>
+                </Col>
+              ))}
+               </Row>
+            )}
         </div>
       )}
     </>
-  );
+   );
 };
 
 export default Search;

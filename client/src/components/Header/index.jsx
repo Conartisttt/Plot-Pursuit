@@ -10,11 +10,11 @@ const Header = () => {
     <header className="mb-4 display-flex align-center ">
       <div className="container justify-space-between-lg justify-center align-center text-center">
         <Link className="text-dark" to="/">
-          <h1 className="m-0" style={{ fontSize:'50px', fontFamily:'IM Fell DW Pica', justifyContent:'center' }}>
+          <h1 className="m-0" style={{ fontSize:'40px', fontFamily:'IM Fell DW Pica', justifyContent:'center' }}>
             Plot Persuit
           </h1>
         </Link>
-        <p className="m-0" style={{ fontSize: '30px', fontWeight: '700',fontFamily:'IM Fell DW Pica' }}>
+        <p className="m-0" style={{ fontSize: '20px', fontWeight: '700',fontFamily:'IM Fell DW Pica' }}>
          Library and TBR Tracker.
         </p>
         <div>
@@ -40,6 +40,9 @@ const Header = () => {
               </Link>
               <Link className="btn btn-lg m-2" to="/signup">
                 Signup
+              </Link>
+              <Link className="btn btn-lg m-2" to="/">
+               Home
               </Link>
             </>
           )}

@@ -12,6 +12,7 @@
 
 button{
     background-color: var(--navy);
+    font-family: 'IM Fell DW Pica';
 }
 header {
     background-color: var(--light-green);
@@ -43,8 +44,8 @@ h1,p {
 }
 
 .currentBook {
-    min-height: 300px;
-    min-width: 250px;
+    max-height: 400px;
+    max-width: 275px;
 }
 
 .readme {
@@ -54,4 +55,15 @@ h1,p {
 
 .libcard {
     max-width: 30px;
+}
+.form-input {
+    font-family: 'IM Fell DW Pica';
+}
+
+.card {
+    border: none;
+}
+
+.searchres {
+   align-items: center;
 }

@@ -29,7 +29,7 @@ const Home = () => {
       <div className="row">
         {currentlyReadingBooks.map(book => (
           <div key={book.bookId} className="col-md">
-            <Link to={`/book/${book.bookId}`} className="text-decoration-none">
+            <Link to={`/library/${book.bookId}`} className="text-decoration-none">
               <div className="card currentRead">
                 <img src={book.image} className="card-img-top centered-image currentBook" alt={book.title} />
                 <div className="card-body">
