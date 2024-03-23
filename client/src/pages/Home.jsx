@@ -3,7 +3,7 @@ import { useQuery } from '@apollo/client';
 import { GET_ME } from '../utils/queries';
 
 const Home = () => {
-  const { loading, error, data } = useQuery(GET_ME);
+  const { loading, data } = useQuery(GET_ME);
   
   if (loading) return <div>Loading...</div>;
   // if (error) return <div>Error: {error.message}</div>;
@@ -12,9 +12,10 @@ const Home = () => {
 
   if(!isLoggedIn){
     return (
-      <div className='container text-center'>
-        <h1>✧･ﾟ✧  Welcome to Plot Persuit  ✧･ﾟ✧</h1>
-        <p>Plot Persuit is the one stop destination for all your personal library and TBR tracking needs! please login or signup to continue!</p>
+      <div className='container align-items-center header' style={{paddingBottom:'200px'}}>
+        <h1 style={{fontSize:'30px'}}>✧･ﾟ✧   Welcome to Plot Persuit   ✧･ﾟ✧</h1>
+        <p style={{fontSize:'20px'}}>Plot Persuit is the one stop destination for all your personal library and TBR tracking needs! please login or signup to continue!</p>
+        <img src="/homecover.jpg" alt="Girl reading book under moon" style={{maxHeight:'600px',display:'block',marginLeft:'auto', marginRight:'auto'}}/>
       </div>
     );
   }

@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import Nav from '../Nav/index';
 import Auth from '../../utils/auth';
 
 const Header = () => {
@@ -8,42 +7,44 @@ const Header = () => {
     Auth.logout();
   };
   return (
-    <header className="bg-info text-dark mb-4 py-3 display-flex align-center">
-      <div className="container flex-column justify-space-between-lg justify-center align-center text-center">
+    <header className="mb-4 display-flex align-center ">
+      <div className="container justify-space-between-lg justify-center align-center text-center">
         <Link className="text-dark" to="/">
-          <h1 className="m-0" style={{ fontSize: '3rem' }}>
+          <h1 className="m-0" style={{ fontSize:'50px', fontFamily:'IM Fell DW Pica', justifyContent:'center' }}>
             Plot Persuit
           </h1>
         </Link>
-        <p className="m-0" style={{ fontSize: '1.75rem', fontWeight: '700' }}>
+        <p className="m-0" style={{ fontSize: '30px', fontWeight: '700',fontFamily:'IM Fell DW Pica' }}>
          Library and TBR Tracker.
         </p>
         <div>
           {Auth.loggedIn() ? (
             <div>
-              <button className="btn btn-lg btn-light m-2" onClick={logout}>
+              <button className="btn btn-lg m-2" onClick={logout}>
                 Logout
               </button>
-              <Link className="btn btn-lg btn-primary m-2" to="/search">
+              <Link className="btn btn-lg m-2" to="/search">
               Search
               </Link>
-              <Link className="btn btn-lg btn-light m-2" to="/library">
+              <Link className="btn btn-lg m-2" to="/library">
                 Library
+              </Link>
+              <Link className="btn btn-lg m-2" to="/">
+               Home
               </Link>
             </div>
           ) : (
             <>
-              <Link className="btn btn-lg btn-primary m-2" to="/login">
+              <Link className="btn btn-lg m-2" to="/login">
                 Login
               </Link>
-              <Link className="btn btn-lg btn-light m-2" to="/signup">
+              <Link className="btn btn-lg m-2" to="/signup">
                 Signup
               </Link>
             </>
           )}
         </div>
       </div>
-      <Nav className="navigation"/>
     </header>
   );
 };
