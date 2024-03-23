@@ -19,7 +19,7 @@ header {
     color: var(--dark-teal);
 }
 
-h1,p {
+h1,p,h2 {
     font-family: 'IM Fell DW Pica';
     text-align: center;
 }
@@ -62,8 +62,13 @@ h1,p {
 
 .card {
     border: none;
+    padding: 10px;
 }
 
-.searchres {
-   align-items: center;
+label {
+    font-family: 'IM Fell DW Pica';
+    font-size: 22px;
+    padding: 10px;  
+
+
 }

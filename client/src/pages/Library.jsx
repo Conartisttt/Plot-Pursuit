@@ -28,14 +28,15 @@ const Library = () => {
         <Form.Check // prettier-ignore
           type="switch"
           id="custom-switch"
-          label="Show Locked Books Only"
+          label="Show Unread Books Only"
+
           onChange={handleToggle}
         />
       </Form>
       <div className="container">
         <h1 className="text-center">Library</h1>
         {showUnreadBooks && 
-                  <div className="row row-cols-2 row-col-md-3 g-4">
+                  <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
                   {storeUnreadBooks.map((book, i) => (
                     <div key={i}>
                       <div key={book.bookId} className="col mb-4 libbooks">
@@ -46,7 +47,7 @@ const Library = () => {
                           <div
                             className="card"
                             style={{
-                              width: "300px",
+                              width: "250px",
                               marginLeft: "10px",
                               marginRight: "10px",
                             }}
@@ -77,7 +78,7 @@ const Library = () => {
 
 
         {!showUnreadBooks && (
-          <div className="row row-cols-2 row-col-md-3 g-4">
+          <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
             {data.me.books.map((book, i) => (
               <div key={i}>
                 <div key={book.bookId} className="col mb-4 libbooks">

@@ -27,19 +27,28 @@ const Home = () => {
     <div className="container">
       <h1 className="text-center">Currently Reading</h1>
       <div className="row">
-        {currentlyReadingBooks.map(book => (
-          <div key={book.bookId} className="col-md">
-            <Link to={`/library/${book.bookId}`} className="text-decoration-none">
-              <div className="card currentRead">
-                <img src={book.image} className="card-img-top centered-image currentBook" alt={book.title} />
-                <div className="card-body">
-                  <h5 className="card-title">{book.title}</h5>
-                  <p className="card-text">Author: {book.authors.join(', ')}</p>
+      {currentlyReadingBooks.length > 0 ? (
+          // Render books if there are books being currently read
+          currentlyReadingBooks.map(book => (
+            <div key={book.bookId} className="col-md">
+              <Link to={`/library/${book.bookId}`} className="text-decoration-none">
+                <div className="card currentRead">
+                  <img src={book.image} className="card-img-top centered-image currentBook" alt={book.title} />
+                  <div className="card-body">
+                    <h5 className="card-title">{book.title}</h5>
+                    <p className="card-text">Author: {book.authors.join(', ')}</p>
+                  </div>
                 </div>
-              </div>
-            </Link>
+              </Link>
+            </div>
+          ))
+        ) : (
+          // Render alternative image if there are no books being currently read
+          <div className="col-md text-center">
+            <img src="/homecover.jpg" className="centered-image" alt="Alternative Image" style={{maxHeight:'600px',display:'block',marginLeft:'auto', marginRight:'auto'}} />
+            <p style={{fontSize:'20px'}}>No books are currently being read</p>
           </div>
-        ))}
+        )}
       </div>
     </div>
   );
