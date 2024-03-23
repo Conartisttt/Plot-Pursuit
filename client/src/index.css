@@ -1,10 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica:ital@0;1&display=swap');
+
+
 :root {
-    --light-green: #cad2c5;
+    --light-green: #b1c0a8;
     --medium-green: #84a98c;
     --teal: #52796f;
     --dark-teal: #354f52;
     --navy: #2f3e46;
     
+}
+
+button{
+    background-color: var(--navy);
+    font-family: 'IM Fell DW Pica';
+}
+header {
+    background-color: var(--light-green);
+    color: var(--dark-teal);
+}
+
+h1,p,h2 {
+    font-family: 'IM Fell DW Pica';
+    text-align: center;
 }
 
 .centered-image {
@@ -27,8 +44,8 @@
 }
 
 .currentBook {
-    min-height: 300px;
-    min-width: 250px;
+    max-height: 400px;
+    max-width: 275px;
 }
 
 .readme {
@@ -38,4 +55,20 @@
 
 .libcard {
     max-width: 30px;
+}
+.form-input {
+    font-family: 'IM Fell DW Pica';
+}
+
+.card {
+    border: none;
+    padding: 10px;
+}
+
+label {
+    font-family: 'IM Fell DW Pica';
+    font-size: 22px;
+    padding: 10px;  
+
+
 }

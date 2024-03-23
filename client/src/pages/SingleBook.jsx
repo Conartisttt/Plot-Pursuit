@@ -111,25 +111,28 @@ const Book = () => {
               src={currentBook.image}
               alt={`Cover of ${currentBook.title}`}
               className="book-cover"
+              style={{height:'300px', width:'200px', display:'block', marginLeft:'auto', marginRight:'auto'}}
             />
-            <p>
+            <p className="single" style={{fontSize:'25px'}}>
               <strong>Title:</strong> {currentBook.title}
             </p>
-            <p>
+            <p className="single" style={{fontSize:'25px'}}>
               <strong>Author:</strong> {currentBook.author}
             </p>
-            <p>
+            <p className="single" style={{fontSize:'25px'}}>
               <strong>Pages:</strong> {currentBook.pages}
             </p>
           </div>
-          <div>
+          <div  className="text-center">
             <label>
               Have you read this book?
               <input
                 type="radio"
                 name="readStatus"
                 value="yes"
+                style={{marginLeft:'10px'}}                
                 onChange={() => handleIsRead(currentBook.bookId, true)}
+
               />
               Yes
             </label>
@@ -139,17 +142,19 @@ const Book = () => {
                 name="readStatus"
                 value="no"
                 onChange={() => handleIsRead(currentBook.bookId, false)}
+
               />
               No
             </label>
           </div>
-          <div>
+          <div  className="text-center">
             <label>
               Are you currently reading this book?
               <input
                 type="radio"
                 name="readStatus"
                 value="yes"
+                style={{marginLeft:'10px'}}
                 onChange={() => handleIsReading(currentBook.bookId, true)}
               />
               Yes
@@ -163,9 +168,13 @@ const Book = () => {
               />
               No
             </label>
+            </div>
+
+          <div className="text-center mt-3">
             <Button
               onClick={() => handleBookDelete(currentBook.bookId)}
               variant="primary"
+              style={{ cursor: "pointer", fontFamily: "IM Fell DW Pica", fontSize: "25px", backgroundColor: "gray" }}
             >
               Remove
             </Button>
