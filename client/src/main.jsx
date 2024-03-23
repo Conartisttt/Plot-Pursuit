@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom/client';
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import App from './App.jsx';
 import Home from './pages/Home';
@@ -12,33 +12,38 @@ import Search from './pages/Search';
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <App />,
     errorElement: <ErrorPage />,
     children: [
       {
         index: true,
-        element: <Home />
-      }, {
+        element: <Home />,
+      },
+      {
         path: '/Login',
-        element: <Login />
-      }, {
+        element: <Login />,
+      },
+      {
         path: '/Signup',
-        element: <Signup />
-      }, {
+        element: <Signup />,
+      },
+      {
         path: '/Library/:bookId',
-        element: <SingleBook />
-      }, {
+        element: <SingleBook />,
+      },
+      {
         path: '/Library',
-        element: <Library/>
-      }, {
+        element: <Library />,
+      },
+      {
         path: '/Search',
-        element: <Search />
-      }
-    ]
+        element: <Search />,
+      },
+    ],
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <RouterProvider router={router} />
-)
+);

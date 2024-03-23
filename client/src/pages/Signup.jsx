@@ -12,6 +12,7 @@ const Signup = () => {
     email: '',
     password: '',
   });
+
   const [addUser, { error, data }] = useMutation(ADD_USER);
 
   // update state based on form input changes
@@ -44,7 +45,16 @@ const Signup = () => {
     <main className="flex-row justify-center mb-4">
       <div className="col-12 col-lg-10">
         <div className="card">
-          <h4 className="card-header text-light p-2" style={{fontFamily:'IM Fell DW Pica', fontSize:'30px', backgroundColor:'#52796f'}} >Sign Up</h4>
+          <h4
+            className="card-header text-light p-2"
+            style={{
+              fontFamily: 'IM Fell DW Pica',
+              fontSize: '30px',
+              backgroundColor: '#52796f',
+            }}
+          >
+            Sign Up
+          </h4>
           <div className="card-body">
             {data ? (
               <p>
@@ -55,7 +65,7 @@ const Signup = () => {
               <form onSubmit={handleFormSubmit}>
                 <input
                   className="form-input"
-                  style={{fontSize:'25px'}}
+                  style={{ fontSize: '25px' }}
                   placeholder="Your username"
                   name="username"
                   type="text"
@@ -64,7 +74,7 @@ const Signup = () => {
                 />
                 <input
                   className="form-input"
-                  style={{fontSize:'25px'}}
+                  style={{ fontSize: '25px' }}
                   placeholder="Your email"
                   name="email"
                   type="email"
@@ -74,7 +84,7 @@ const Signup = () => {
                 <input
                   className="form-input"
                   placeholder="******"
-                  style={{fontSize:'25px'}}
+                  style={{ fontSize: '25px' }}
                   name="password"
                   type="password"
                   value={formState.password}
@@ -82,7 +92,11 @@ const Signup = () => {
                 />
                 <button
                   className="btn btn-block"
-                  style={{ cursor: 'pointer',fontFamily:'IM Fell DW Pica',fontSize:'25px' }}
+                  style={{
+                    cursor: 'pointer',
+                    fontFamily: 'IM Fell DW Pica',
+                    fontSize: '25px',
+                  }}
                   type="submit"
                 >
                   Submit
