@@ -4,7 +4,6 @@ const ProfileList = ({ profiles, title }) => {
   // if (!profiles.length) {
   //   return <h3>No Profiles Yet</h3>;
   // }
-
   // return (
   //   <div>
   //     <h3 className="text-primary">{title}</h3>
@@ -21,7 +20,6 @@ const ProfileList = ({ profiles, title }) => {
   //                   {profile.skills && profile.skills.length === 1 ? '' : 's'}
   //                 </span>
   //               </h4>
-
   //               <Link
   //                 className="btn btn-block btn-squared btn-light text-dark"
   //                 to={`/profiles/${profile._id}`}
