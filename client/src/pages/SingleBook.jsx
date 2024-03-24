@@ -119,13 +119,13 @@ const Book = () => {
                 marginRight: 'auto',
               }}
             />
-            <p className="single" style={{ fontSize: '25px' }}>
+            <p className="single" style={{ fontSize: '20px' }}>
               <strong>Title:</strong> {currentBook.title}
             </p>
-            <p className="single" style={{ fontSize: '25px' }}>
+            <p className="single" style={{ fontSize: '20px' }}>
               <strong>Author:</strong> {currentBook.author}
             </p>
-            <p className="single" style={{ fontSize: '25px' }}>
+            <p className="single" style={{ fontSize: '20px' }}>
               <strong>Pages:</strong> {currentBook.pages}
             </p>
           </div>
@@ -181,7 +181,7 @@ const Book = () => {
               style={{
                 cursor: 'pointer',
                 fontFamily: 'IM Fell DW Pica',
-                fontSize: '25px',
+                fontSize: '20px',
                 backgroundColor: 'gray',
               }}
             >

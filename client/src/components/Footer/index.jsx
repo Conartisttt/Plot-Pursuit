@@ -11,24 +11,18 @@ const Footer = () => {
         bottom: 0,
         left: 0,
         width: '100%',
-        marginLeft: '50px',
+
       }}
     >
-      <div className="text-left ">
+      <div className="container text-left">
         {location.pathname !== '/' && (
-          <button className="btn mb-3" onClick={() => navigate(-1)}>
+          <button className="btn btn-sm mb-3" onClick={() => navigate(-1)}>
             &larr; Go Back
           </button>
         )}
-        <h4 style={{ fontSize: '15px' }}>
-          &copy; {new Date().getFullYear()} - Plot Persuit
+        <h4 style={{ fontSize: '12px' }}>
+          &copy; {new Date().getFullYear()} - Plot Persuit Made with readers in mind           by: Daelyn Hiduchick, Connor Martin, and Shinayomi Ogunbayo
         </h4>
-        <p style={{ fontSize: '15px', textAlign: 'left' }}>
-          Made with readers in mind
-        </p>
-        <p style={{ fontSize: '15px', textAlign: 'left' }}>
-          by:Daelyn Hiduchick,Connor Martin,and Shinayomi Ogunbayo
-        </p>
       </div>
     </footer>
   );
