@@ -1,14 +1,22 @@
 import { Link } from 'react-router-dom';
 import Auth from '../../utils/auth';
+import { useState } from 'react';
 
 const Header = () => {
+  const [showMenu, setShowMenu] = useState(false);
+
+  const toggleMenu = () => {
+    setShowMenu(!showMenu);
+  };
+
   const logout = (event) => {
     event.preventDefault();
     Auth.logout();
   };
+
   return (
-    <header className="mb-4 display-flex align-center ">
-      <div className="container justify-space-between-lg justify-center align-center text-center">
+    <header className="mb-4 display-flex align-center justify-content">
+      <div className="container text-center align-center justify-content">
         <Link className="text-dark" to="/">
           <h1
             className="m-0"
@@ -31,12 +39,9 @@ const Header = () => {
         >
           Library and TBR Tracker.
         </p>
-        <div>
+        <div className="buttons-container align-center justify-content">
           {Auth.loggedIn() ? (
-            <div>
-              <button className="btn btn-lg m-2" onClick={logout}>
-                Logout
-              </button>
+            <>
               <Link className="btn btn-lg m-2" to="/search">
                 Search
               </Link>
@@ -46,19 +51,61 @@ const Header = () => {
               <Link className="btn btn-lg m-2" to="/">
                 Home
               </Link>
-            </div>
+              <button className="btn btn-lg m-2" onClick={logout}>
+                Logout
+              </button>
+            </>
           ) : (
             <>
+              <Link className="btn btn-lg m-2" to="/">
+                Home
+              </Link>            
               <Link className="btn btn-lg m-2" to="/login">
                 Login
               </Link>
               <Link className="btn btn-lg m-2" to="/signup">
                 Signup
               </Link>
+            </>
+          )}
+        </div>
+        {/* Show menu button on smaller screens */}
+        <div className="menu-container">
+          <button className="btn btn-menu" onClick={toggleMenu}>
+            Menu
+          </button>
+          {/* Show dropdown menu on smaller screens */}
+          {showMenu && (
+            <div className="dropdown-menu">
+              {Auth.loggedIn() ? (
+                <>
+                  <button className="btn btn-lg m-2" onClick={logout}>
+                    Logout
+                  </button>
+                  <Link className="btn btn-lg m-2" to="/search">
+                    Search
+                  </Link>
+                  <Link className="btn btn-lg m-2" to="/">
+                Home
+              </Link>
+                  <Link className="btn btn-lg m-2" to="/library">
+                    Library
+                  </Link>
+                </>
+              ) : (
+                <>
               <Link className="btn btn-lg m-2" to="/">
                 Home
               </Link>
-            </>
+                  <Link className="btn btn-lg m-2" to="/login">
+                    Login
+                  </Link>
+                  <Link className="btn btn-lg m-2" to="/signup">
+                    Signup
+                  </Link>
+                </>
+              )}
+            </div>
           )}
         </div>
       </div>
