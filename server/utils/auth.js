@@ -1,8 +1,9 @@
-const { GraphQLError } = require('graphql') 
+const { GraphQLError } = require('graphql')
+require('dotenv').config();
 const jwt = require('jsonwebtoken');
 
 // set token secret and expiration date
-const secret = 'mysecretsshhhhh';
+const secret = process.env.JWT_PASS;
 const expiration = '2h';
 
 module.exports = {
@@ -16,7 +17,7 @@ module.exports = {
     // allows token to be sent via  req.query or headers
     let token = req.body.token || req.query.token || req.headers.authorization;
 
- // We split the token string into an array and return actual token
+    // We split the token string into an array and return actual token
     // ["Bearer", "<tokenvalue>"]
     if (req.headers.authorization) {
       token = token.split(' ').pop().trim();

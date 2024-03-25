@@ -11,7 +11,7 @@ const Library = () => {
   const [storeUnreadBooks, setStoreUnreadBooks] = useState([]);
   const navigate = useNavigate();
 
-  //when the page loads, check to see if the user has a profile. If not, redirect to homepage.
+  //if user does not have valid token in their local storage, return them to the homepage
   useEffect(() => {
     try {
       Auth.getProfile();

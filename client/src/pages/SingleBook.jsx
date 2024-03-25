@@ -15,33 +15,42 @@ const Book = () => {
   const [updateBook] = useMutation(UPDATE_BOOK_STATUS);
   const [removeBook] = useMutation(REMOVE_BOOK);
 
+  //if user does not have valid token in their local storage, return them to the homepage
   useEffect(() => {
     try {
       Auth.getProfile();
     } catch (_) {
       navigate('/');
     }
+    //this use effect will only run once when the componenet mounts
   }, []);
 
   useEffect(() => {
+    //get user from database
     getUser();
     if (data) {
+      // set the current book by comparing the array of books stored in the user to the bookId passed in the params
       const bookArr = data.me.books;
       setCurrentBook(
         bookArr.find((singleBook) => singleBook.bookId === bookId)
       );
     }
+    //this use effect will run whenever the data variable changes its value
   }, [data]);
 
   const handleIsRead = async (bookId, isRead) => {
+    //validate user by getting jwt token from local storage
     const token = Auth.loggedIn() ? Auth.getToken() : null;
+    // const token = Auth.getToken() || null;
 
     if (!token) {
       return false;
     }
+    //set isReading variable to false
     const isReading = false;
 
     try {
+      //update book isRead and isReading values based on checkbox selected
       const { data } = await updateBook({
         variables: { bookId, isRead, isReading },
       });
@@ -55,14 +64,17 @@ const Book = () => {
   };
 
   const handleIsReading = async (bookId, isReading) => {
+    //validate user by getting jwt token from local storage
     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
     if (!token) {
       return false;
     }
+    //set isRead variable to false
     const isRead = false;
 
     try {
+      //update book isReading and isRead values based on checkbox selected
       const { data } = await updateBook({
         variables: { bookId, isRead, isReading },
       });
@@ -76,12 +88,13 @@ const Book = () => {
   };
 
   const handleBookDelete = async (bookId) => {
+    //validate user by getting jwt token from local storage
     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
     if (!token) {
       return false;
     }
-
+    //remove book using bookId
     try {
       const { data } = await removeBook({
         variables: { bookId },
