@@ -40,7 +40,7 @@ module.exports = {
   },
   signToken: function ({ username, email, _id }) {
     const payload = { username, email, _id };
-
+    //sign token using the users login credentials, the JWT secret, and expiration of token and return the signed token
     return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
   },
 };

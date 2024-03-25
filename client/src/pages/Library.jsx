@@ -21,7 +21,7 @@ const Library = () => {
   }, []);
 
   useEffect(() => {
-    // Manually trigger a refetch when the component mounts
+    // Manually trigger a refetch for the query when the component mounts
     refetch();
   }, []);
 
