@@ -4,7 +4,7 @@ import { useMutation, useLazyQuery } from '@apollo/client';
 import Auth from '../utils/auth';
 import { useParams } from 'react-router-dom';
 import { GET_ME } from '../utils/queries';
-import { UPDATE_BOOK_STATUS, REMOVE_BOOK } from '../utils/mutations';
+import { UPDATE_BOOK_IS_READ_STATUS, REMOVE_BOOK, UPDATE_BOOK_IS_READING_STATUS } from '../utils/mutations';
 import { Button } from 'react-bootstrap';
 
 const Book = () => {
@@ -12,7 +12,8 @@ const Book = () => {
   const navigate = useNavigate();
   const { bookId } = useParams();
   const [getUser, { loading, error, data }] = useLazyQuery(GET_ME);
-  const [updateBook] = useMutation(UPDATE_BOOK_STATUS);
+  const [updateBookIsRead] = useMutation(UPDATE_BOOK_IS_READ_STATUS);
+  const [updateBookIsReading] = useMutation(UPDATE_BOOK_IS_READING_STATUS);
   const [removeBook] = useMutation(REMOVE_BOOK);
 
   //if user does not have valid token in their local storage, return them to the homepage
@@ -51,8 +52,8 @@ const Book = () => {
 
     try {
       //update book isRead and isReading values based on checkbox selected
-      const { data } = await updateBook({
-        variables: { bookId, isRead, isReading },
+      const { data } = await updateBookIsRead({
+        variables: { bookId, isRead },
       });
       //if no data, throw error
       if (!data) {
@@ -72,13 +73,11 @@ const Book = () => {
     if (!token) {
       return false;
     }
-    //set isRead variable to false
-    const isRead = false;
 
     try {
       //update book isReading and isRead values based on checkbox selected
-      const { data } = await updateBook({
-        variables: { bookId, isRead, isReading },
+      const { data } = await updateBookIsReading({
+        variables: { bookId, isReading },
       });
       //if no data, throw error
       if (!data) {

@@ -83,7 +83,7 @@ const resolvers = {
             }
             throw new Error('Unable to perform task');
         },
-        updateBookStatus: async (_, { bookId, isRead, isReading }, context) => {
+        updateBookIsReadStatus: async (_, { bookId, isRead }, context) => {
             // Check if the user is authenticated
             if (!context.user) {
                 throw new AuthenticationError('You must be logged in to update book status');
@@ -108,6 +108,40 @@ const resolvers = {
 
                 // Update the book's status
                 bookToUpdate.isRead = isRead;
+
+                // Save the updated user document
+                await user.save();
+
+                // Return the updated book
+                return bookToUpdate;
+            } catch (error) {
+                throw new Error(`Failed to update book status: ${error.message}`);
+            }
+        },
+        updateBookIsReadingStatus: async (_, { bookId, isReading }, context) => {
+            // Check if the user is authenticated
+            if (!context.user) {
+                throw new AuthenticationError('You must be logged in to update book status');
+            }
+
+            try {
+                // Find the user by its ID
+                const user = await User.findById(context.user._id);
+
+                // If the user is not found, throw an error
+                if (!user) {
+                    throw new Error('User not found');
+                }
+
+                // Find the book in the user's books array
+                const bookToUpdate = user.books.find(book => book.bookId === bookId);
+
+                // If the book is not found, throw an error
+                if (!bookToUpdate) {
+                    throw new Error('Book not found');
+                }
+
+                // Update the book's status
                 bookToUpdate.isReading = isReading;
 
                 // Save the updated user document
