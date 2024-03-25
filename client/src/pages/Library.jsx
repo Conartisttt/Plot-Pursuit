@@ -6,7 +6,7 @@ import Form from 'react-bootstrap/Form';
 import Auth from '../utils/auth';
 
 const Library = () => {
-  const { loading, error, data } = useQuery(GET_ME);
+  const { loading, error, data, refetch } = useQuery(GET_ME);
   const [showUnreadBooks, setShowUnreadBooks] = useState(false);
   const [storeUnreadBooks, setStoreUnreadBooks] = useState([]);
   const navigate = useNavigate();
@@ -18,6 +18,11 @@ const Library = () => {
     } catch (_) {
       navigate('/');
     }
+  }, []);
+
+  useEffect(() => {
+    // Manually trigger a refetch when the component mounts
+    refetch();
   }, []);
 
   //store unread books in state whenever data changes

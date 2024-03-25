@@ -58,6 +58,7 @@ const Book = () => {
       if (!data) {
         throw new Error('something went wrong!');
       }
+      navigate('/Library');
     } catch (e) {
       console.error(e);
     }
@@ -82,6 +83,7 @@ const Book = () => {
       if (!data) {
         throw new Error('something went wrong!');
       }
+      navigate('/Library');
     } catch (e) {
       console.log(e);
     }
@@ -103,6 +105,7 @@ const Book = () => {
       if (!data) {
         throw new Error('something went wrong!');
       }
+      navigate('/Library');
     } catch (e) {
       console.error(e);
     }

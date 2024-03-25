@@ -84,7 +84,7 @@ const Search = () => {
           throw new Error('something went wrong!');
         } else {
           //hide disable save button and hide book to prevent being saved twice
-          const card = event.target.parentElement.parentElement;
+          const card = event.target.parentElement.parentElement.parentElement;
           card.classList.add('hide');
           const button = event.target;
           button.disabled = true;
