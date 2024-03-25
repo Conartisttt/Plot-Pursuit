@@ -199,9 +199,22 @@ const Book = () => {
                 fontFamily: 'IM Fell DW Pica',
                 fontSize: '20px',
                 backgroundColor: 'gray',
+                marginRight: '50px'
               }}
             >
               Remove
+            </Button>
+            <Button
+              onClick={() => navigate('/Library')}
+              variant="primary"
+              style={{
+                cursor: 'pointer',
+                fontFamily: 'IM Fell DW Pica',
+                fontSize: '20px',
+                backgroundColor: 'gray',
+              }}
+            >
+              Cancel
             </Button>
           </div>
         </div>
