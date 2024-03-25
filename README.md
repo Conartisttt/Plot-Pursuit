@@ -1,9 +1,54 @@
-# Plot-Persuit 
+# Personal TBR Library
 
-## Description 
+## Introduction
+This application provides users with a platform to manage their personal To Be Read (TBR) library. Designed for avid readers who acquire books faster than they can read them, this tool helps users keep track of their unread books, manage reading progress, and organize their literary interests.
 
-Introducing Plot Persuit, the ultimate tool for book enthusiasts to manage their 'To Be Read' (TBR) lists with ease! Plot Persuit is a comprehensive application designed to empower users in curating and organizing their personal libraries. With Plot Persuit, users can create a digital library of their unread books, allowing them to efficiently track which books they have yet to read.
+## User Story
+As an avid reader, I want to be able to keep track of my personal library so that I know which books I own that I still have to read.
 
-One of the standout features of Plot Persuit is its ability to update the status of books as 'read' once the user has finished reading them. This feature not only helps users keep track of their reading accomplishments but also ensures that their library remains up to date.
+## User Flow Chart
+- **HomePage**: 
+  - Display books currently being read.
+- **Personal Library**: 
+  - View and manage personal library:
+    - Add books:
+      - Title
+      - Number of pages
+      - Author
+      - Read/unread status
+      - Genre
+      - Book cover (optional) - image uploader
+      - Description (optional)
+    - Toggle switch for marking books as read/unread.
+- **Login / Signup**: 
+  - Authenticate users to access their personal libraries.
 
-Whether you're an avid reader looking to organize your extensive book collection or a casual reader aiming to stay on top of your reading list, Plot Persuit is the perfect companion for bibliophiles of all kinds. Say goodbye to scattered TBR lists and hello to a streamlined reading experience with Plot Persuit!
+## Features
+- **Add Books**: Easily add books to your personal library, including essential details like title, author, number of pages, genre, and optional book cover and description.
+- **Manage Reading Progress**: Keep track of books you are currently reading and mark them as read when finished.
+- **Organize by Genre**: Categorize books by genre for easy navigation and filtering.
+- **User Authentication**: Secure login/signup functionality to protect user data and ensure privacy.
+
+## Technologies Used
+- Frontend: HTML, CSS, JavaScript
+- Backend: Node.js, Express.js
+- Database: MongoDB
+- Authentication: JSON Web Tokens (JWT)
+- Image Upload: Multer (Node.js middleware)
+
+## Installation
+1. Clone the repository: `git clone :https://github.com/Conartisttt/To-Be-Read ``
+2. Install dependencies: `npm install`
+3. Set up environment variables for database connection and JWT secret.
+4. Start the server: `npm start`
+5. Access the application through your browser at ``
+
+## Contributing
+Contributions are welcome! Please follow the guidelines outlined in [CONTRIBUTING.md](CONTRIBUTING.md).
+
+## License
+This project is licensed under the [MIT License](LICENSE).
+
+## Contact
+For any inquiries or feedback, feel free to contact us at .Mails(Dhiduchick%2540gmail.com,Connerwmar@gmail.com and Shinaayomi2005@icloud.com,)
+
