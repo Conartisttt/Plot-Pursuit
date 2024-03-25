@@ -14,7 +14,7 @@ const Home = () => {
     return (
       <div
         className="container align-items-center header"
-        style={{ paddingBottom: '200px' }}
+        style={{ paddingBottom: '10px' }}
       >
         <h1 style={{ fontSize: '30px' }}>✧･ﾟ✧ Welcome to Plot Persuit ✧･ﾟ✧</h1>
         <p style={{ fontSize: '20px' }}>
