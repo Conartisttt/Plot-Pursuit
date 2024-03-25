@@ -32,6 +32,7 @@ const Library = () => {
     }
   }, [data]);
 
+    // Toggle function to switch between showing all books and only unread books
   const handleToggle = () => {
     setShowUnreadBooks(!showUnreadBooks);
   };
@@ -51,6 +52,7 @@ const Library = () => {
       </Form>
       <div className="container">
         <h1 className="text-center">Library</h1>
+         {/* Display unread books if showUnreadBooks is true */}
         {showUnreadBooks && (
           <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
             {storeUnreadBooks.map((book, i) => (
@@ -92,6 +94,7 @@ const Library = () => {
           </div>
         )}
 
+    {/* Display all books if showUnreadBooks is false */}
         {!showUnreadBooks && (
           <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
             {data.me.books.map((book, i) => (

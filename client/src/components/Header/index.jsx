@@ -3,12 +3,15 @@ import Auth from '../../utils/auth';
 import { useState } from 'react';
 
 const Header = () => {
+   // State to manage the visibility of the dropdown menu
   const [showMenu, setShowMenu] = useState(false);
 
+// Function to toggle the visibility of the dropdown menu
   const toggleMenu = () => {
     setShowMenu(!showMenu);
   };
 
+   // Function to handle user logout
   const logout = (event) => {
     event.preventDefault();
     Auth.logout();
@@ -17,6 +20,7 @@ const Header = () => {
   return (
     <header className="mb-4 display-flex align-center justify-content">
       <div className="container text-center align-center justify-content">
+         {/* Logo and title */}
         <Link className="text-dark" to="/">
           <h1
             className="m-0"
@@ -29,6 +33,7 @@ const Header = () => {
             Plot Persuit
           </h1>
         </Link>
+         {/* Subtitle */}
         <p
           className="m-0"
           style={{
@@ -39,6 +44,7 @@ const Header = () => {
         >
           Library and TBR Tracker.
         </p>
+        {/* Main navigation buttons */}
         <div className="buttons-container align-center justify-content">
           {Auth.loggedIn() ? (
             <>
