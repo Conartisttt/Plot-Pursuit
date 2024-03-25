@@ -6,18 +6,23 @@ import Form from 'react-bootstrap/Form';
 import Auth from '../utils/auth';
 
 const Library = () => {
-  const { loading, error, data } = useQuery(GET_ME);
+  const { loading, error, data, refetch } = useQuery(GET_ME);
   const [showUnreadBooks, setShowUnreadBooks] = useState(false);
   const [storeUnreadBooks, setStoreUnreadBooks] = useState([]);
   const navigate = useNavigate();
 
-  //when the page loads, check to see if the user has a profile. If not, redirect to homepage.
+  //if user does not have valid token in their local storage, return them to the homepage
   useEffect(() => {
     try {
       Auth.getProfile();
     } catch (_) {
       navigate('/');
     }
+  }, []);
+
+  useEffect(() => {
+    // Manually trigger a refetch when the component mounts
+    refetch();
   }, []);
 
   //store unread books in state whenever data changes

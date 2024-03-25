@@ -19,15 +19,15 @@ const Login = () => {
     });
   };
 
-  // submit form
+  // login user with their credentials
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
     try {
+      //login user, return user and token
       const { data } = await login({
         variables: { ...formState },
       });
-
+      //set token in local storage
       Auth.login(data.login.token);
     } catch (e) {
       console.error(e);

@@ -13,9 +13,9 @@ const Search = () => {
   const [searchData, setSearchData] = useState('');
   const [savedBookIds, setSavedBookIds] = useState([]);
   const [saveBook] = useMutation(SAVE_BOOK);
-  const [getProfile, { loading, error, data }] = useLazyQuery(GET_ME);
+  const [getUser, { loading, error, data }] = useLazyQuery(GET_ME);
 
-  //when the page loads, check to see if the user has a profile. If not, redirect to homepage.
+  //if user does not have valid token in their local storage, return them to the homepage
   useEffect(() => {
     try {
       Auth.getProfile();
@@ -24,19 +24,15 @@ const Search = () => {
     }
   }, []);
 
-  //when data variable changes, get current user information from db and get saved book id's to state
+  //when data variable changes, get current user information from db and set saved book id's to state
   useEffect(() => {
-    getProfile();
+    getUser();
     if (data) {
       setSavedBookIds(data.me.books.map((book) => book.bookId));
-      console.log(data);
     }
   }, [data]);
 
-  //commented this out but could come in handy for debugging.
-  // useEffect(()=> console.log(savedBookIds), [savedBookIds])
-
-  //this function searches using API to return books not already saved in out database
+  //search functionality
   const handleFormSubmit = async (event) => {
     if (event) {
       event.preventDefault();
@@ -46,11 +42,13 @@ const Search = () => {
       return;
     }
     try {
+      //search API using search input
       const response = await googleBooks(searchInput);
+      //parses JSON body
       const body = await response.json();
-      const books = body.items;
       //filter books to be rendered only if they are not already saved in db
-      const filtered = books.filter((book) => !savedBookIds.includes(book.id));
+      const filtered = body.items.filter((book) => !savedBookIds.includes(book.id));
+      //create an array of the filtered book objects with only necessary data
       const newBooks = filtered.map((book) => ({
         bookId: book.id,
         authors: book.volumeInfo.authors || ['No author to display'],
@@ -58,6 +56,7 @@ const Search = () => {
         pages: book.volumeInfo.pageCount?.toString() || 'unknown',
         image: book.volumeInfo.imageLinks?.thumbnail || '',
       }));
+      //save to searchData state
       setSearchData(newBooks);
     } catch (err) {
       console.error(err);
@@ -85,7 +84,7 @@ const Search = () => {
           throw new Error('something went wrong!');
         } else {
           //hide disable save button and hide book to prevent being saved twice
-          const card = event.target.parentElement.parentElement;
+          const card = event.target.parentElement.parentElement.parentElement;
           card.classList.add('hide');
           const button = event.target;
           button.disabled = true;
