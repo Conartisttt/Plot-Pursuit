@@ -54,11 +54,12 @@ const Book = () => {
       const { data } = await updateBook({
         variables: { bookId, isRead, isReading },
       });
-
+      //if no data, throw error
       if (!data) {
         throw new Error('something went wrong!');
       }
-      navigate('/Library');
+      //go back to the page you came from (Library or Home)
+      navigate(-1);
     } catch (e) {
       console.error(e);
     }
@@ -79,11 +80,12 @@ const Book = () => {
       const { data } = await updateBook({
         variables: { bookId, isRead, isReading },
       });
-
+      //if no data, throw error
       if (!data) {
         throw new Error('something went wrong!');
       }
-      navigate('/Library');
+      //go back to the page you came from (Library or Home)
+      navigate(-1);
     } catch (e) {
       console.log(e);
     }
@@ -101,11 +103,12 @@ const Book = () => {
       const { data } = await removeBook({
         variables: { bookId },
       });
-
+      //if no data, throw error
       if (!data) {
         throw new Error('something went wrong!');
       }
-      navigate('/Library');
+      //go back to the page you came from (Library or Home)
+      navigate(-1);
     } catch (e) {
       console.error(e);
     }

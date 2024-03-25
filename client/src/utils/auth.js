@@ -8,7 +8,7 @@ class AuthService {
     return decode(this.getToken());
   }
 
-  // return `true` or `false` if token exists (does not verify if it's expired yet)
+  // return `true` or `false` if token exists (does not verify if it's expired)
   loggedIn() {
     const token = this.getToken();
     return token ? true : false;
@@ -22,6 +22,7 @@ class AuthService {
   login(idToken) {
     // Saves user token to localStorage and reloads the application for logged in status to take effect
     localStorage.setItem('id_token', idToken);
+    //this will navigate the user to the homepage
     window.location.assign('/');
   }
 

@@ -1,9 +1,15 @@
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { GET_ME } from '../utils/queries';
 
 const Home = () => {
-  const { loading, data } = useQuery(GET_ME);
+  const { loading, data, _, refetch } = useQuery(GET_ME);
+
+  useEffect(() => {
+    // Manually trigger a refetch for the query when the component mounts
+    refetch();
+  }, []);
 
   if (loading) return <div>Loading...</div>;
   // if (error) return <div>Error: {error.message}</div>;
