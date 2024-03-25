@@ -56,9 +56,22 @@ mutation removeBook($bookId: String!) {
 }
 `
 
-export const UPDATE_BOOK_STATUS = gql`
-mutation updateBookStatus($bookId: String!, $isRead: Boolean!, $isReading: Boolean!) {
-  updateBookStatus(bookId: $bookId, isRead: $isRead, isReading: $isReading) {
+export const UPDATE_BOOK_IS_READ_STATUS = gql`
+mutation updateBookIsReadStatus($bookId: String!, $isRead: Boolean!) {
+  updateBookIsReadStatus(bookId: $bookId, isRead: $isRead) {
+    bookId
+    title
+    authors
+    pages
+    isRead
+    isReading
+    }
+  }
+`;
+
+export const UPDATE_BOOK_IS_READING_STATUS = gql`
+mutation updateBookIsReadingStatus($bookId: String!, $isReading: Boolean!) {
+  updateBookIsReadingStatus(bookId: $bookId, isReading: $isReading) {
     bookId
     title
     authors
