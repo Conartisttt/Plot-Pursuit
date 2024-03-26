@@ -20,17 +20,17 @@ Whether you're an avid reader looking to organize your extensive book collection
 
 ## Screenshots
 
-![homepage](./client/public/homepage.png)
-![signup](./client/public/sign%20up.png)
-![login](./client/public/login%20.png)
-![currentreadw/o](./client/public/nocurrent.png)
-![search](./client/public/search.png)
-![search-results](./client/public/search%20books.png)
-![library](./client/public/full%20library.png)
-![singlebook](./client/public/single%20book.png)
-![libraryw/read](./client/public/full%20library%20w:read.png)
-![currentread](./client/public/currentread.png)
-![tbr](./client/public/unreadonly.png)
+![homepage](./assets/homepage.png)
+![signup](./assets/sign%20up.png)
+![login](./assets/login%20.png)
+![currentreadw/assets/o](./assets/nocurrent.png)
+![search](./assets/search.png)
+![search-results](./assets/search%20books.png)
+![library](./assets/full%20library.png)
+![singlebook](./assets/single%20book.png)
+![libraryw/assets/read](./assets/full%20library%20w:read.png)
+![currentread](./assets/currentread.png)
+![tbr](./assets/unreadonly.png)
 
 ## Live Site
 
@@ -55,7 +55,7 @@ https://plot-pursuit.onrender.com/
 
 ## Installation
 
-1. Begin by cloning the repository using the command git clone https://github.com/Conartisttt/Plot-Pursuit.git.
+1. Begin by cloning the repository using the command git clone https:/assets/github.com/assets/Conartisttt/assets/Plot-Pursuit.git.
 2. Open the cloned project in Visual Studio Code. If you don't have it installed, make sure to install it first.
 3. Install Node.js version 16 using the terminal.
 4. After installing Node.js, initialize a new package.json file by running the command npm init -y in the terminal.
@@ -66,4 +66,4 @@ https://plot-pursuit.onrender.com/
 
 ## Questions
 
-Have any questions, or would like to discuss this project with the creators? [Conner's Github](https://github.com/Conartisttt) ⋆ ˚｡⋆୨♡୧⋆ ˚｡⋆ [Daelyn's Github](https://github.com/dhiduchick) ⋆ ˚｡⋆୨♡୧⋆ ˚｡⋆ [Ay's Github](https://github.com/shinayomi1)
+Have any questions, or would like to discuss this project with the creators? [Conner's Github](https:/assets/github.com/assets/Conartisttt) ⋆ ˚｡⋆୨♡୧⋆ ˚｡⋆ [Daelyn's Github](https:/assets/github.com/assets/dhiduchick) ⋆ ˚｡⋆୨♡୧⋆ ˚｡⋆ [Ay's Github](https:/assets/github.com/assets/shinayomi1)
