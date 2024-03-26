@@ -34,7 +34,7 @@ const Signup = () => {
       //set token in local storage
       Auth.login(data.addUser.token);
     } catch (e) {
-      console.error(e);
+      console.log('Something went wrong!')
     }
   };
 

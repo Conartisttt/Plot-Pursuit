@@ -30,7 +30,7 @@ const Login = () => {
       //set token in local storage
       Auth.login(data.login.token);
     } catch (e) {
-      console.error(e);
+      console.log('Something went wrong!')
     }
 
     // clear form values

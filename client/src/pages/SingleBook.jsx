@@ -60,8 +60,8 @@ const Book = () => {
       }
       //go back to the page you came from (Library or Home)
       navigate(-1);
-    } catch (e) {
-      console.error(e);
+    } catch {
+      console.log('Something went wrong!')
     }
   };
 
@@ -84,8 +84,8 @@ const Book = () => {
       }
       //go back to the page you came from (Library or Home)
       navigate(-1);
-    } catch (e) {
-      console.log(e);
+    } catch {
+      console.log('Something went wrong!')
     }
   };
 
@@ -107,8 +107,8 @@ const Book = () => {
       }
       //go back to the page you came from (Library or Home)
       navigate(-1);
-    } catch (e) {
-      console.error(e);
+    } catch {
+      console.log('Something went wrong!')
     }
   };
 
