@@ -1,9 +1,10 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { GET_ME } from '../utils/queries';
 import { useState, useEffect } from 'react';
 import Form from 'react-bootstrap/Form';
 import Auth from '../utils/auth';
+import LibraryBook from '../components/LibraryBook';
 
 const Library = () => {
   const { loading, error, data, refetch } = useQuery(GET_ME);
@@ -32,7 +33,7 @@ const Library = () => {
     }
   }, [data]);
 
-    // Toggle function to switch between showing all books and only unread books
+  // Toggle function to switch between showing all books and only unread books
   const handleToggle = () => {
     setShowUnreadBooks(!showUnreadBooks);
   };
@@ -52,86 +53,22 @@ const Library = () => {
       </Form>
       <div className="container">
         <h1 className="text-center">Library</h1>
-         {/* Display unread books if showUnreadBooks is true */}
+        {/* Display unread books if showUnreadBooks is true */}
         {showUnreadBooks && (
           <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
             {storeUnreadBooks.map((book, i) => (
-              <div key={i}>
-                <div key={book.bookId} className="col mb-4 libbooks">
-                  <Link
-                    to={`/Library/${book.bookId}`}
-                    className="text-decoration-none"
-                  >
-                    <div
-                      className="card"
-                      style={{
-                        width: '300px',
-                        marginLeft: '10px',
-                        marginRight: '10px',
-                      }}
-                    >
-                      <img
-                        src={book.isRead ? book.image : '/readmecover.jpg'}
-                        className="card-img-top centered-image readme"
-                        alt={book.title}
-                        style={{
-                          height: '175px',
-                          width: '125px',
-                          paddingTop: '10px',
-                        }}
-                      />
-                      <div className="card-body">
-                        <h5 className="card-title">{book.title}</h5>
-                        <p className="card-text">
-                          Author: {book.authors.join(', ')}
-                        </p>
-                      </div>
-                    </div>
-                  </Link>
-                </div>
-              </div>
+              //inject componenet passing props
+              <LibraryBook key={i} book={book} />
             ))}
           </div>
         )}
 
-    {/* Display all books if showUnreadBooks is false */}
+        {/* Display all books if showUnreadBooks is false */}
         {!showUnreadBooks && (
           <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
             {data.me.books.map((book, i) => (
-              <div key={i}>
-                <div key={book.bookId} className="col mb-4 libbooks">
-                  <Link
-                    to={`/Library/${book.bookId}`}
-                    className="text-decoration-none"
-                  >
-                    <div
-                      className="card"
-                      style={{
-                        width: '300px',
-                        marginLeft: '10px',
-                        marginRight: '10px',
-                      }}
-                    >
-                      <img
-                        src={book.isRead ? book.image : '/readmecover.jpg'}
-                        className="card-img-top centered-image readme"
-                        alt={book.title}
-                        style={{
-                          height: '175px',
-                          width: '125px',
-                          paddingTop: '10px',
-                        }}
-                      />
-                      <div className="card-body">
-                        <h5 className="card-title">{book.title}</h5>
-                        <p className="card-text">
-                          Author: {book.authors.join(', ')}
-                        </p>
-                      </div>
-                    </div>
-                  </Link>
-                </div>
-              </div>
+              //inject componenet passing props
+              <LibraryBook key={i} book={book} />
             ))}
           </div>
         )}
