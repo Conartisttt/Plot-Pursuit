@@ -206,7 +206,7 @@ const Book = () => {
               Remove
             </Button>
             <Button
-              onClick={() => navigate('/Library')}
+              onClick={() => navigate(-1)}
               variant="primary"
               style={{
                 cursor: 'pointer',
