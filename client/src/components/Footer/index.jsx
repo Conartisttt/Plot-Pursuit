@@ -24,7 +24,7 @@ const Footer = () => {
         )}
         {/* Footer text */}
         <h4 style={{ fontSize: '12px' }}>
-          &copy; {new Date().getFullYear()} - Plot Persuit Made with readers in mind           by: Daelyn Hiduchick, Connor Martin, and Shinayomi Ogunbayo
+          &copy; {new Date().getFullYear()} - Plot Pursuit Made with readers in mind           by: Daelyn Hiduchick, Conner Martin, and Shinayomi Ogunbayo
         </h4>
       </div>
     </footer>

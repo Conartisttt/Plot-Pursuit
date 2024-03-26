@@ -30,7 +30,7 @@ const Header = () => {
               justifyContent: 'center',
             }}
           >
-            Plot Persuit
+            Plot Pursuit
           </h1>
         </Link>
          {/* Subtitle */}
