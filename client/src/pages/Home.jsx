@@ -27,16 +27,12 @@ const Home = () => {
           Plot Persuit is the one stop destination for all your personal library
           and TBR tracking needs! please login or signup to continue!
         </p>
+        <div className='image-container'>
         <img
           src="/homecover.jpg"
           alt="Girl reading book under moon"
-          style={{
-            maxHeight: '600px',
-            display: 'block',
-            marginLeft: 'auto',
-            marginRight: 'auto',
-          }}
         />
+      </div>
       </div>
     );
   }
