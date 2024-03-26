@@ -19,7 +19,9 @@ const Book = () => {
   //if user does not have valid, not expired token in their local storage, return them to the homepage
   useEffect(() => {
     try {
-      Auth.getProfile();
+      if (!Auth.getProfile()) {
+        navigate('/');
+      }
     } catch (_) {
       navigate('/');
     }
@@ -204,7 +206,7 @@ const Book = () => {
               Remove
             </Button>
             <Button
-              onClick={() => navigate('/Library')}
+              onClick={() => navigate(-1)}
               variant="primary"
               style={{
                 cursor: 'pointer',

@@ -18,7 +18,9 @@ const Search = () => {
   //if user does not have valid token in their local storage, return them to the homepage
   useEffect(() => {
     try {
-      Auth.getProfile();
+      if (!Auth.getProfile()) {
+        navigate('/');
+      }
     } catch (_) {
       navigate('/');
     }
