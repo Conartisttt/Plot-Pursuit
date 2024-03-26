@@ -33,7 +33,7 @@ const Signup = () => {
       });
       //set token in local storage
       Auth.login(data.addUser.token);
-    } catch (e) {
+    } catch {
       console.log('Something went wrong!')
     }
   };
@@ -103,7 +103,7 @@ const Signup = () => {
 
             {error && (
               <div className="my-3 p-3 bg-danger text-white">
-                {error.message}
+                {'Something went wrong!'}
               </div>
             )}
           </div>

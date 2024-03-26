@@ -7,7 +7,7 @@ import Auth from '../utils/auth';
 import LibraryBook from '../components/LibraryBook';
 
 const Library = () => {
-  const { loading, error, data, refetch } = useQuery(GET_ME);
+  const { loading, _, data, refetch } = useQuery(GET_ME);
   const [showUnreadBooks, setShowUnreadBooks] = useState(false);
   const [storeUnreadBooks, setStoreUnreadBooks] = useState([]);
   const navigate = useNavigate();

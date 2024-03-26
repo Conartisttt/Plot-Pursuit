@@ -11,7 +11,7 @@ const Book = () => {
   const [currentBook, setCurrentBook] = useState({});
   const navigate = useNavigate();
   const { bookId } = useParams();
-  const [getUser, { loading, error, data }] = useLazyQuery(GET_ME);
+  const [getUser, { loading, _, data }] = useLazyQuery(GET_ME);
   const [updateBookIsRead] = useMutation(UPDATE_BOOK_IS_READ_STATUS);
   const [updateBookIsReading] = useMutation(UPDATE_BOOK_IS_READING_STATUS);
   const [removeBook] = useMutation(REMOVE_BOOK);
