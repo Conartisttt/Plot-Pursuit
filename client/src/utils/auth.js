@@ -5,7 +5,14 @@ import decode from 'jwt-decode';
 class AuthService {
   // get user data from JSON web token by decoding it
   getProfile() {
-    return decode(this.getToken());
+    const decoded = decode(this.getToken())
+    const exp = decoded.exp
+    //check if token is expired
+    if (Date.now() >= exp * 1000) {
+      return false;
+    }
+    //return token
+    return decoded;
   }
 
   // return `true` or `false` if token exists (does not verify if it's expired)

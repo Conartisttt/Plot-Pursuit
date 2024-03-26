@@ -38,7 +38,7 @@ const Search = () => {
       event.preventDefault();
     }
     if (!searchInput) {
-      console.log('nothing in search input');
+      console.log('Nothing in search input');
       return;
     }
     try {
@@ -47,7 +47,9 @@ const Search = () => {
       //parses JSON body
       const body = await response.json();
       //filter books to be rendered only if they are not already saved in db
-      const filtered = body.items.filter((book) => !savedBookIds.includes(book.id));
+      const filtered = body.items.filter(
+        (book) => !savedBookIds.includes(book.id)
+      );
       //create an array of the filtered book objects with only necessary data
       const newBooks = filtered.map((book) => ({
         bookId: book.id,
@@ -58,19 +60,19 @@ const Search = () => {
       }));
       //save to searchData state
       setSearchData(newBooks);
-    } catch (err) {
-      console.error(err);
+    } catch {
+      console.log('Something went wrong!');
     }
   };
 
   //this function saves a book to db and hides the div
   const handleBookSave = async (event, book) => {
-    const token = Auth.loggedIn() ? Auth.getToken() : null;
+  //validate user by getting jwt token from local storage and checking if it is expired
+    const token = Auth.getProfile() || null;
 
     if (!token) {
       return false;
     }
-
     try {
       //check if book being saved is already saved
       if (savedBookIds.includes(book.bookId)) {

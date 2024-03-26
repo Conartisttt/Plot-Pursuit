@@ -16,7 +16,7 @@ const Book = () => {
   const [updateBookIsReading] = useMutation(UPDATE_BOOK_IS_READING_STATUS);
   const [removeBook] = useMutation(REMOVE_BOOK);
 
-  //if user does not have valid token in their local storage, return them to the homepage
+  //if user does not have valid, not expired token in their local storage, return them to the homepage
   useEffect(() => {
     try {
       Auth.getProfile();
@@ -40,15 +40,12 @@ const Book = () => {
   }, [data]);
 
   const handleIsRead = async (bookId, isRead) => {
-    //validate user by getting jwt token from local storage
-    const token = Auth.loggedIn() ? Auth.getToken() : null;
-    // const token = Auth.getToken() || null;
+    //validate user by getting jwt token from local storage and checking if it is expired
+    const token = Auth.getProfile() || null;
 
     if (!token) {
       return false;
     }
-    //set isReading variable to false
-    const isReading = false;
 
     try {
       //update book isRead and isReading values based on checkbox selected
@@ -67,8 +64,8 @@ const Book = () => {
   };
 
   const handleIsReading = async (bookId, isReading) => {
-    //validate user by getting jwt token from local storage
-    const token = Auth.loggedIn() ? Auth.getToken() : null;
+    //validate user by getting jwt token from local storage and checking if it is expired
+    const token = Auth.getProfile() || null;
 
     if (!token) {
       return false;
@@ -91,8 +88,8 @@ const Book = () => {
   };
 
   const handleBookDelete = async (bookId) => {
-    //validate user by getting jwt token from local storage
-    const token = Auth.loggedIn() ? Auth.getToken() : null;
+    //validate user by getting jwt token from local storage and checking if it is expired
+    const token = Auth.getProfile() || null;
 
     if (!token) {
       return false;
