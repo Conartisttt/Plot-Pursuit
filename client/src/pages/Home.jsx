@@ -1,7 +1,7 @@
-import { useEffect } from 'react'
-import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import { GET_ME } from '../utils/queries';
+import CurrentlyReadingBook from '../components/CurrentlyReadingBook';
 
 const Home = () => {
   const { loading, data, _, refetch } = useQuery(GET_ME);
@@ -49,27 +49,9 @@ const Home = () => {
       <div className="row">
         {currentlyReadingBooks.length > 0 ? (
           // Render books if there are books being currently read
-          currentlyReadingBooks.map((book) => (
-            <div key={book.bookId} className="col-md">
-              <Link
-                to={`/library/${book.bookId}`}
-                className="text-decoration-none"
-              >
-                <div className="card currentRead">
-                  <img
-                    src={book.image}
-                    className="card-img-top centered-image currentBook"
-                    alt={book.title}
-                  />
-                  <div className="card-body">
-                    <h5 className="card-title">{book.title}</h5>
-                    <p className="card-text">
-                      Author: {book.authors.join(', ')}
-                    </p>
-                  </div>
-                </div>
-              </Link>
-            </div>
+          currentlyReadingBooks.map((book, i) => (
+            //inject componenet passing props
+            <CurrentlyReadingBook key={i} book={book} />
           ))
         ) : (
           // Render alternative image if there are no books being currently read
