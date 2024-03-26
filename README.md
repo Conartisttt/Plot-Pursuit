@@ -35,7 +35,8 @@ Whether you're an avid reader looking to organize your extensive book collection
 ![tbr](./client/public/unreadonly.png)
 
 ## Live Site
-
+ https://plot-pursuit.onrender.com/
+ 
 ## Technologies Used
 - React
 - GraphQL
