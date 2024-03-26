@@ -76,7 +76,7 @@ const Header = () => {
           )}
         </div>
         {/* Show menu button on smaller screens */}
-        <div className="menu-container">
+        <div className="menu-container align-center ">
           <button className="btn btn-menu" onClick={toggleMenu}>
             Menu
           </button>
