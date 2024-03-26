@@ -35,7 +35,7 @@ Whether you're an avid reader looking to organize your extensive book collection
 ![tbr](./client/public/unreadonly.png)
 
 ## Live Site
- https://to-be-read.onrender.com/
+ https://plot-pursuit.onrender.com/
  
 ## Technologies Used
 - React
