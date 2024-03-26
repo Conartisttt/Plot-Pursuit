@@ -65,7 +65,7 @@ const Library = () => {
                     <div
                       className="card"
                       style={{
-                        width: '250px',
+                        width: '300px',
                         marginLeft: '10px',
                         marginRight: '10px',
                       }}
