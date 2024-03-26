@@ -21,9 +21,9 @@ const Home = () => {
         className="container align-items-center header"
         style={{ paddingBottom: '10px' }}
       >
-        <h1 style={{ fontSize: '30px' }}>✧･ﾟ✧ Welcome to Plot Persuit ✧･ﾟ✧</h1>
+        <h1 style={{ fontSize: '30px' }}>✧･ﾟ✧ Welcome to Plot Pursuit ✧･ﾟ✧</h1>
         <p style={{ fontSize: '20px' }}>
-          Plot Persuit is the one stop destination for all your personal library
+          Plot Pursuit is the one stop destination for all your personal library
           and TBR tracking needs! please login or signup to continue!
         </p>
         <img
