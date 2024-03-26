@@ -7,7 +7,7 @@ import Auth from '../utils/auth';
 import LibraryBook from '../components/LibraryBook';
 
 const Library = () => {
-  const { loading, error, data, refetch } = useQuery(GET_ME);
+  const { loading, _, data, refetch } = useQuery(GET_ME);
   const [showUnreadBooks, setShowUnreadBooks] = useState(false);
   const [storeUnreadBooks, setStoreUnreadBooks] = useState([]);
   const navigate = useNavigate();
@@ -15,7 +15,9 @@ const Library = () => {
   //if user does not have valid token in their local storage, return them to the homepage
   useEffect(() => {
     try {
-      Auth.getProfile();
+      if (!Auth.getProfile()) {
+        navigate('/');
+      }
     } catch (_) {
       navigate('/');
     }
@@ -39,7 +41,6 @@ const Library = () => {
   };
 
   if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error.message}</div>;
 
   return (
     <>

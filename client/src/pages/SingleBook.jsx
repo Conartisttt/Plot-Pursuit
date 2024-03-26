@@ -11,7 +11,7 @@ const Book = () => {
   const [currentBook, setCurrentBook] = useState({});
   const navigate = useNavigate();
   const { bookId } = useParams();
-  const [getUser, { loading, error, data }] = useLazyQuery(GET_ME);
+  const [getUser, { loading, _, data }] = useLazyQuery(GET_ME);
   const [updateBookIsRead] = useMutation(UPDATE_BOOK_IS_READ_STATUS);
   const [updateBookIsReading] = useMutation(UPDATE_BOOK_IS_READING_STATUS);
   const [removeBook] = useMutation(REMOVE_BOOK);
@@ -19,8 +19,10 @@ const Book = () => {
   //if user does not have valid, not expired token in their local storage, return them to the homepage
   useEffect(() => {
     try {
-      Auth.getProfile();
-    } catch (_) {
+      if (!Auth.getProfile()) {
+        navigate('/');
+      }
+    } catch {
       navigate('/');
     }
     //this use effect will only run once when the componenet mounts
@@ -58,8 +60,8 @@ const Book = () => {
       }
       //go back to the page you came from (Library or Home)
       navigate(-1);
-    } catch (e) {
-      console.error(e);
+    } catch {
+      console.log('Something went wrong!')
     }
   };
 
@@ -82,8 +84,8 @@ const Book = () => {
       }
       //go back to the page you came from (Library or Home)
       navigate(-1);
-    } catch (e) {
-      console.log(e);
+    } catch {
+      console.log('Something went wrong!')
     }
   };
 
@@ -105,8 +107,8 @@ const Book = () => {
       }
       //go back to the page you came from (Library or Home)
       navigate(-1);
-    } catch (e) {
-      console.error(e);
+    } catch {
+      console.log('Something went wrong!')
     }
   };
 
@@ -204,7 +206,7 @@ const Book = () => {
               Remove
             </Button>
             <Button
-              onClick={() => navigate('/Library')}
+              onClick={() => navigate(-1)}
               variant="primary"
               style={{
                 cursor: 'pointer',

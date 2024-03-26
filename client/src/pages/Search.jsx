@@ -13,13 +13,15 @@ const Search = () => {
   const [searchData, setSearchData] = useState('');
   const [savedBookIds, setSavedBookIds] = useState([]);
 
-  const [getUser, { loading, error, data }] = useLazyQuery(GET_ME);
+  const [getUser, { loading, _, data }] = useLazyQuery(GET_ME);
 
   //if user does not have valid token in their local storage, return them to the homepage
   useEffect(() => {
     try {
-      Auth.getProfile();
-    } catch (_) {
+      if (!Auth.getProfile()) {
+        navigate('/');
+      }
+    } catch {
       navigate('/');
     }
   }, []);
