@@ -21,7 +21,7 @@ const Search = () => {
       if (!Auth.getProfile()) {
         navigate('/');
       }
-    } catch (_) {
+    } catch {
       navigate('/');
     }
   }, []);
