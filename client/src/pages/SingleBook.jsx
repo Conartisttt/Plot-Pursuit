@@ -22,7 +22,7 @@ const Book = () => {
       if (!Auth.getProfile()) {
         navigate('/');
       }
-    } catch (_) {
+    } catch {
       navigate('/');
     }
     //this use effect will only run once when the componenet mounts
